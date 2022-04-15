@@ -1,0 +1,44 @@
+buildscript {
+    ext { //전역변수를 설정하겠다는 의미
+        springBootVersion = '2.1.9.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") //버전관리가 한곳에집중, 버전충돌문제해결
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.jojoldu.book'
+version '1.0.4-SNAPSHOT-'+new Date().format("yyyyMMddHHmmss")
+sourceCompatibility = 1.8
+
+
+repositories {
+    mavenCentral() //각종 의존성(라이브러리)들을 어떤 원격저장소에 받을지정하는것
+    jcenter()      //라이브러리 업로드 간단하게 할수있음
+}
+
+//개발에 필요한 라이브러리들을 선언하는곳!!! (버전을 명시하지 않아도됨)
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.projectlombok:lombok')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('org.springframework.boot:spring-boot-starter-mustache')
+    implementation('com.h2database:h2')
+
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
+    implementation('org.springframework.session:spring-session-jdbc')
+
+    implementation("org.mariadb.jdbc:mariadb-java-client")
+
+    implementation('org.springframework.boot:spring-boot-starter-test')
+    implementation("org.springframework.security:spring-security-test")
+}
