@@ -19,7 +19,7 @@ public class PostRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
 
-    // 단위테스트가 끝날때마다 수행됟는 메소드를 지정
+    // 단위테스트가 끝날때마다 수행되는 메소드를 지정
     // 테스트간의 데이터침범을 막기위해, 데이터가남아있을경우 다음테스트에 영향
     @After
     public void cleanup(){

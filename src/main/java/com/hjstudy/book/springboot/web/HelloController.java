@@ -15,7 +15,7 @@ public class HelloController {
         return  "hello";
     }
 
-    @GetMapping("/hello/dto") //파라미터를 받아오는 어노테이션(외부에서 넘긴)
+    @GetMapping("/hello/dto")  // @RequestParam : 파라미터를 받아오는 어노테이션(외부에서 넘긴)
     public HelloResponseDto helloDto(@RequestParam("name") String name, @RequestParam("amount") int amount){
         return new HelloResponseDto(name,amount);
 
